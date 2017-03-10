@@ -1,11 +1,10 @@
 'use strict'
 
-const http = require('http')
 const promisify = require('es6-promisify')
 const logger = require('winston')
 const config = require('../config')
 const app = require('./server')
-const db = require('./db')
+require('./db')
 
 const serverListen = promisify(app.listen, app)
 serverListen(config.server.port)

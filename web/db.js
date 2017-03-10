@@ -10,13 +10,13 @@ mongoose.connect(config.mongo.uri)
 mongoose.Promise = global.Promise
 
 const db = mongoose.connection
-db.on('error', ()=>{
-    throw new Error(`
+db.on('error', () => {
+  throw new Error(`
       mongodb not connected.
   `)
 })
-db.once('open', ()=>{
-    logger.info('connected to mongodb server')
+db.once('open', () => {
+  logger.info('connected to mongodb server')
 })
 
 module.exports = db

@@ -15,9 +15,34 @@ node.js 로 rest api 서버를 구성을 위한 기본 template
 - `PORT` `require`
 
 ### 환경 변수 설정 방법
+
+* 환경 변수 test.env (프로젝트 root 위치) 파일 생성
+
 ```
-$ export NODE_ENV = 'production'
-$ export LOGGER_LEVEL = 'info'
+NODE_ENV=production
+PROCESS_TYPE=web
+LOGGER_LEVER=debug
+MONGO_URI=mongodb://${id}:${pass}@${domain}:${port}/barogo
+REDIS_URI=redis://127.0.0.1:6379
+PORT=3000
+LANG_TYPE=ko
+MAIL_ID=${id}
+MAIL_PASS=${pass}
+```
+
+## 시작 / 종료 / 재시작
+
+### web
+
+pm2 를 사용 하여 node process 관리
+
+```
+cd ${home}/barogoapi
+pm2 start ./test.json
+pm2 stop bapi
+pm2 restart bapi
+pm2 logs bapi
+pm2 logs bapi --lines 1000
 ```
 
 ## 참고 url
